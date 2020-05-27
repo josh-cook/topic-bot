@@ -2,14 +2,14 @@ const reviewers = require("./reviewers.json");
 const { WebClient } = require("@slack/web-api");
 
 // Initialize with token for app
-const slack = new WebClient(
-  "xoxb-1148859936338-1147487527317-EZN60FjfyCPqg3FoWPnVfPjy"
-);
+const slack = new WebClient(process.env.SLACK_TOKEN);
 
 const date = new Date();
 const day = date.getDate().toString().padStart(2, "0");
 const month = (date.getMonth() + 1).toString().padStart(2, "0");
 const today = `${day}/${month}`;
+
+slack.users.list().then((response) => console.log(response));
 
 slack.conversations
   .info({
