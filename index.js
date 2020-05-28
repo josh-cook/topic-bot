@@ -39,7 +39,7 @@ async function convertToMention(name) {
     return;
   }
 
-  reviewer = `Today's reviewer is: ${reviewer} (${Math.random()})`;
+  reviewer = `Today's reviewer is: ${reviewer}`;
 
   await slack.conversations.setTopic({
     //specific channel Id and topic you want to assign
